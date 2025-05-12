@@ -162,18 +162,21 @@
 						
 					</div>
 					
-					<div class="col-xs-12 containerGrids hvr-buzz-out">
-						
-						<div class="col-xs-12 pics text-center">
-							<img src="images/popularDestinations/imageAndaman.jpg" alt="popularDestination1" class="picDim text-center"/>
-						</div>
-						
-						<div class="col-xs-12 heading">
-							Andaman and Nicobar
-						</div>
-						
-					</div>
-					
+					<a href="andaman.php" class="text-decoration-none">
+
+            <div class="col-xs-12 containerGrids hvr-buzz-out">
+
+                <div class="col-xs-12 pics text-center">
+                    <img src="images/popularDestinations/imageAndaman.jpg" alt="Andaman and Nicobar" class="picDim text-center"/>
+                </div>
+
+                <div class="col-xs-12 heading text-center">
+                    Andaman and Nicobar
+                </div>
+
+            </div>
+
+        </a>
 					<div class="col-xs-12 containerGrids hvr-buzz-out">
 						
 						<div class="col-xs-12 pics text-center">
