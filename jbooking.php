@@ -1,99 +1,107 @@
 <?php
-// jbook.php - Handle Booking Submission
-
-$package_name = $name = $email = $phone = $travelers = $total_price = "";
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve and sanitize form data
-    $package_name = htmlspecialchars($_POST['package_name']);
-    $name = htmlspecialchars($_POST['name']);
-    $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
-    $phone = htmlspecialchars($_POST['phone']);
-    $travelers = intval($_POST['travelers']);
-    $base_price = 32000;
-    $total_price = $base_price * $travelers;
-
-    // Validate required fields
-    if (empty($name) || empty($email) || empty($phone) || empty($travelers)) {
-        $error = "All fields are required.";
-    }
-} else {
-    $error = "Invalid request. Please use the booking form.";
-}
+// kashmir.php - Jammu and Kashmir Travel Package Page
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Booking Confirmation</title>
+    <title>Jammu and Kashmir Travel Package | Tours & Travels</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: #f0f4f8;
             font-family: 'Segoe UI', sans-serif;
         }
-
-        .confirmation-box {
-            background: white;
-            padding: 2rem;
+        .package-card {
+            background: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            margin-top: 3rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2rem;
         }
-
-        h2 {
+        .price-tag {
             color: #28a745;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
-
-        p {
-            font-size: 1.1rem;
+        .gallery img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 8px;
         }
-
-        strong {
-            color: #333;
-        }
-
-        .btn-back {
-            display: inline-block;
-            margin-top: 1rem;
+        footer {
+            background: #343a40;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="confirmation-box text-center">
-
-                <?php if (!empty($error)): ?>
-                    <h2 class="text-danger">Error</h2>
-                    <p class="text-danger"><?= $error ?></p>
-                    <a href="javascript:history.back()" class="btn btn-primary btn-back">Go Back</a>
-                <?php else: ?>
-                    <h2>✅ Booking Confirmed!</h2>
-                    <p><strong>Package:</strong> <?= $package_name ?></p>
-                    <p><strong>Name:</strong> <?= $name ?></p>
-                    <p><strong>Email:</strong> <?= $email ?></p>
-                    <p><strong>Phone:</strong> <?= $phone ?></p>
-                    <p><strong>Travelers:</strong> <?= $travelers ?></p>
-                    <p><strong>Total Price:</strong> ₹<?= number_format($total_price) ?></p>
-                    <p>We'll contact you shortly with more details.</p>
-                    <a href="index.php" class="btn btn-success btn-back">Back to Home</a>
-                <?php endif; ?>
-
-            </div>
-        </div>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="#">Tours & Travels</a>
+        <a href="index.php" class="btn btn-outline-light">← Back to Home</a>
     </div>
-</div>
+</nav>
+
+<!-- Header -->
+<header class="bg-primary text-white text-center py-4">
+    <h1>Experience Jammu and Kashmir</h1>
+    <p class="lead">6 Days & 5 Nights Himalayan Paradise Tour</p>
+</header>
+
+<main class="container my-5">
+    <div class="package-card">
+        <h2 class="text-primary">🏔️ Kashmir Valley Adventure - 6D/5N</h2>
+        <p>
+            Discover the breathtaking beauty of Jammu and Kashmir with our curated tour covering Srinagar, Pahalgam, and Gulmarg.
+            From Dal Lake shikara rides to snow-capped mountains, experience nature at its finest in India’s most scenic destination.
+        </p>
+        <p class="price-tag">Starting from ₹32,000 per person</p>
+
+        <!-- Booking Form -->
+        <form action="jbook.php" method="POST">
+            <input type="hidden" name="package_name" value="Kashmir 6D/5N Himalayan Adventure">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" name="phone" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="travelers" class="form-label">Number of Travelers</label>
+                <select name="travelers" class="form-select" required>
+                    <option value="">Select</option>
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4+ People</option>
+                </select>
+            </div>
+         <a href="reviewancb.php" class="btn btn-success">
+        </form>
+    </div>
+    </a>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Tours & Travels. All rights reserved.</p>
+</footer>
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
