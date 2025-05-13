@@ -177,6 +177,7 @@
             </div>
 
         </a>
+		<a href="rajasthan.php" class="text-decoration-none">
 					<div class="col-xs-12 containerGrids hvr-buzz-out">
 						
 						<div class="col-xs-12 pics text-center">
@@ -188,7 +189,9 @@
 						</div>
 						
 					</div>
-					
+					</a>
+
+					<a href="jammukashmir.php" class="text-decoration-none">
 					<div class="col-xs-12 containerGrids hvr-buzz-out">
 						
 						<div class="col-xs-12 pics text-center">
@@ -201,7 +204,7 @@
 						
 					</div>
 					
-					
+					</a>
 					
 				</div>
 				
@@ -275,3 +278,4 @@
 	</body>
 	
 </html>
+
