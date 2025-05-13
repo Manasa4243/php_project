@@ -9,7 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/hover-min.css" rel="stylesheet"/>
+	<link href="css/min.css" rel="stylesheet"/>
+   	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400|Raleway:100,300,400,500|Roboto:100,400,500,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
         body {
@@ -115,90 +119,19 @@
             </div>
         </div>
 
-        <!-- Testimonials -->
-        <h4>User Reviews</h4>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <blockquote class="blockquote">
-                    <p>"Kashmir is heaven on earth! Every moment was magical."</p>
-                    <footer class="blockquote-footer">Anjali Sharma</footer>
-                </blockquote>
-            </div>
-            <div class="col-md-6 mb-3">
-                <blockquote class="blockquote">
-                    <p>"The itinerary was perfectly planned. Loved every bit!"</p>
-                    <footer class="blockquote-footer">Rohit Verma</footer>
-                </blockquote>
-            </div>
-        </div>
+     
 
         <!-- Book Now Button -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingModal">
+       <a href="jbooking.php" class="btn btn-success">
             Book This Package
         </button>
 
     </div>
+    </a>
 </main>
 
-<!-- Booking Modal -->
-<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form class="modal-content" action="submit_booking.php" method="POST">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bookingModalLabel">Book Your Trip</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" name="package_name" value="Kashmir 6D/5N Himalayan Adventure">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="text" name="name" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" name="email" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" name="phone" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="travelers" class="form-label">Number of Travelers</label>
-                    <select name="travelers" class="form-select" id="travelersSelect" onchange="updatePrice(this.value)" required>
-                        <option value="">Select</option>
-                        <option value="1">1 Person</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4+ People</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <p>Total Price: <span id="totalPrice" class="text-success fw-bold">₹32,000</span></p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success">Confirm Booking</button>
-            </div>
-        </form>
-    </div>
-</div>
 
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 Tours & Travels. All rights reserved.</p>
-</footer>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-    function updatePrice(value) {
-        const basePrice = 32000;
-        let total = basePrice * parseInt(value || 1);
-        document.getElementById('totalPrice').innerText = "₹" + total.toLocaleString();
-    }
-</script>
 
 </body>
 </html>
+
