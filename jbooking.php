@@ -24,12 +24,6 @@
             font-size: 1.5rem;
             font-weight: bold;
         }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            border-radius: 8px;
-        }
         footer {
             background: #343a40;
             color: white;
@@ -65,23 +59,27 @@
         <p class="price-tag">Starting from ₹32,000 per person</p>
 
         <!-- Booking Form -->
-        <form action="jbook.php" method="POST">
+        <form action="reviewancb.php" method="POST" onsubmit="return validateForm()">
             <input type="hidden" name="package_name" value="Kashmir 6D/5N Himalayan Adventure">
+
             <div class="mb-3">
                 <label for="name" class="form-label">Full Name</label>
-                <input type="text" name="name" class="form-control" required>
+                <input type="text" id="name" name="name" class="form-control" required>
             </div>
+
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" name="email" class="form-control" required>
+                <input type="email" id="email" name="email" class="form-control" required>
             </div>
+
             <div class="mb-3">
                 <label for="phone" class="form-label">Phone Number</label>
-                <input type="tel" name="phone" class="form-control" required>
+                <input type="tel" id="phone" name="phone" class="form-control" maxlength="10" required>
             </div>
+
             <div class="mb-3">
                 <label for="travelers" class="form-label">Number of Travelers</label>
-                <select name="travelers" class="form-select" required>
+                <select id="travelers" name="travelers" class="form-select" required>
                     <option value="">Select</option>
                     <option value="1">1 Person</option>
                     <option value="2">2 People</option>
@@ -89,10 +87,12 @@
                     <option value="4">4+ People</option>
                 </select>
             </div>
-         <a href="reviewancb.php" class="btn btn-success">
+
+            <div class="mb-3 text-danger" id="errorMsg"></div>
+
+            <button type="submit" class="btn btn-success">Review & Confirm</button>
         </form>
     </div>
-    </a>
 </main>
 
 <!-- Footer -->
@@ -102,6 +102,45 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Form Validation Script -->
+<script>
+    function validateForm() {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const travelers = document.getElementById('travelers').value;
+        const errorMsg = document.getElementById('errorMsg');
+
+        errorMsg.textContent = "";
+
+        const nameRegex = /^[A-Za-z\s]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phoneRegex = /^[0-9]{10}$/;
+
+        if (!nameRegex.test(name)) {
+            errorMsg.textContent = "Name should contain only letters and spaces.";
+            return false;
+        }
+
+        if (!emailRegex.test(email)) {
+            errorMsg.textContent = "Please enter a valid email address.";
+            return false;
+        }
+
+        if (!phoneRegex.test(phone)) {
+            errorMsg.textContent = "Phone number must be 10 digits.";
+            return false;
+        }
+
+        if (travelers === "") {
+            errorMsg.textContent = "Please select the number of travelers.";
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
 </body>
 </html>
-
