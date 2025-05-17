@@ -9,8 +9,13 @@
     <title>Rajasthan Travel Package | Tours & Travels</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <!-- Bootstrap CSS -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="css/hover-min.css" rel="stylesheet"/>
+	<link href="css/min.css" rel="stylesheet"/>
+   	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400|Raleway:100,300,400,500|Roboto:100,400,500,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
 
     <style>
         body {
@@ -62,6 +67,7 @@
     <div class="package-card">
 
         <h2 class="text-primary">🏰 Rajasthan Royal Heritage Tour - 6D/5N</h2>
+        <img src=" images\popularDestinations\rajmain.jpg" alt="Dal Lake">
 
         <!-- Description -->
         <p>
@@ -106,84 +112,24 @@
         <h4>Gallery</h4>
         <div class="row gallery">
             <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=Amer+Fort " alt="Amer Fort">
+                <img src="images\popularDestinations\raj1.jpg " alt="Amer Fort">
             </div>
             <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=Udaipur+Lake " alt="Udaipur Lake">
+                <img src="images\popularDestinations\raj2.jpg " alt="Udaipur Lake">
             </div>
             <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=Mehrangarh+Fort " alt="Mehrangarh Fort">
+                <img src=" images\popularDestinations\raj3.jpg" alt="Mehrangarh Fort">
             </div>
         </div>
 
-        <!-- Testimonials -->
-        <h4>User Reviews</h4>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <blockquote class="blockquote">
-                    <p>"Rajasthan is pure magic! Every palace was breathtaking."</p>
-                    <footer class="blockquote-footer">Sneha Mehta</footer>
-                </blockquote>
-            </div>
-            <div class="col-md-6 mb-3">
-                <blockquote class="blockquote">
-                    <p>"The guide knew all the hidden gems. Highly recommended!"</p>
-                    <footer class="blockquote-footer">Rahul Khanna</footer>
-                </blockquote>
-            </div>
-        </div>
-
-        <!-- Book Now Button -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingModal">
-            Book This Package
-        </button>
-
+       
     </div>
 </main>
 
-<!-- Booking Modal -->
-<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form class="modal-content" action="submit_booking.php" method="POST">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bookingModalLabel">Book Your Trip</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" name="package_name" value="Rajasthan 6D/5N Royal Heritage Tour">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="text" name="name" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" name="email" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" name="phone" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="travelers" class="form-label">Number of Travelers</label>
-                    <select name="travelers" class="form-select" id="travelersSelect" onchange="updatePrice(this.value)" required>
-                        <option value="">Select</option>
-                        <option value="1">1 Person</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4+ People</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <p>Total Price: <span id="totalPrice" class="text-success fw-bold">₹28,000</span></p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success">Confirm Booking</button>
-            </div>
-        </form>
-    </div>
-</div>
+<!-- Book Now Button -->
+       <a href="rajbooking.php" class="btn btn-success">
+            Book This Package
+        </button>
 
 <!-- Footer -->
 <footer>
