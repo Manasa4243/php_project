@@ -63,7 +63,7 @@
 
 <main class="container my-5">
     <div class="package-card">
-
+<img src=" images\popularDestinations\kk.webp" alt="Dal Lake">
         <h2 class="text-primary">🏔️ Kashmir Valley Adventure - 6D/5N</h2>
 
         <!-- Description -->
@@ -109,13 +109,13 @@
         <h4>Gallery</h4>
         <div class="row gallery">
             <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=Dal+Lake+Srinagar " alt="Dal Lake">
+                <img src="images\popularDestinations\jk-1.jpg " alt="Dal Lake">
             </div>
             <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=Gulmarg+Snow " alt="Gulmarg">
+                <img src=" images\popularDestinations\jk-2.jpg" alt="Gulmarg">
             </div>
             <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=Pahalgam+Valley " alt="Pahalgam Valley">
+                <img src="images\popularDestinations\jk-3.jpeg" alt="Pahalgam Valley">
             </div>
         </div>
 
