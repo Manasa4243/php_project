@@ -1,9 +1,7 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Payment Page</title>
+    <title>Secure Payment</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -74,6 +72,8 @@
 
 <script>
     document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
         let cardNumber = document.getElementById('cardNumber').value.trim();
         let cardName = document.getElementById('cardName').value.trim();
         let expMonth = document.getElementById('expMonth').value.trim();
@@ -83,34 +83,44 @@
 
         errorMsg.innerText = '';
 
-        // Regex checks
+        // Validation
         if (!/^\d{16}$/.test(cardNumber)) {
             errorMsg.innerText = 'Card number must be 16 digits.';
-            e.preventDefault();
             return;
         }
         if (!/^[A-Za-z\s]+$/.test(cardName)) {
             errorMsg.innerText = 'Cardholder name must only contain letters.';
-            e.preventDefault();
             return;
         }
         if (!/^\d{2}$/.test(expMonth) || parseInt(expMonth) > 12 || parseInt(expMonth) < 1) {
             errorMsg.innerText = 'Invalid expiry month.';
-            e.preventDefault();
             return;
         }
         if (!/^\d{2}$/.test(expYear)) {
             errorMsg.innerText = 'Invalid expiry year.';
-            e.preventDefault();
             return;
         }
         if (!/^\d{3}$/.test(cvv)) {
             errorMsg.innerText = 'CVV must be 3 digits.';
-            e.preventDefault();
             return;
         }
 
-        alert("Payment successful!"); // Replace with actual processing logic
+        // Simulate successful payment
+        const bookingData = {
+            package: "Kashmir 6D/5N Himalayan Adventure",
+            name: "John Doe", // Replace with dynamic value from previous page if available
+            email: "john@example.com",
+            travelers: 2,
+            amount: "₹32,000",
+            date: new Date().toLocaleDateString(),
+            transactionId: 'TXN' + Math.floor(100000 + Math.random() * 900000)
+        };
+
+        // Save to session storage
+        sessionStorage.setItem("bookingDetails", JSON.stringify(bookingData));
+
+        // Redirect to success page
+        window.location.href = "paymentsucc.php";
     });
 </script>
 
