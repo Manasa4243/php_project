@@ -1,6 +1,3 @@
-<?php
-// andaman.php - Enhanced Andaman Travel Package Page
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,60 +6,202 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"  rel="stylesheet">
 
     <style>
+        /* General Styles */
         body {
-            font-family: 'Segoe UI', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9fbfd; /* Light blue background */
+            color: #333;
+            transition: background-color 0.3s ease;
         }
+
+        h2, h4 {
+            font-weight: 600;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #1a252f;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #fff;
+            transition: color 0.3s ease;
+            text-align: center; /* Center the navbar brand text */
+        }
+
+        .navbar-brand:hover {
+            color: #17a2b8;
+        }
+
+        /* Main Content */
         .package-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 2rem;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 2.5rem;
+            margin-top: -50px;
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease;
         }
+
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .package-card img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
         .price-tag {
             color: #28a745;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
+            margin-bottom: 1.5rem;
+            display: block;
         }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #17a2b8;
+            padding-left: 0; /* Remove the small line before the text */
+        }
+
+        /* Background Colors for Sections */
+        .included-section,
+        .not-included-section,
+        .itinerary-section,
+        .gallery-section {
+            background-color: #f0f8ff; /* Light blue background for sections */
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .content-block {
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+            transition: transform 0.3s ease;
+        }
+
+        .content-block:hover {
+            transform: translateX(5px);
+        }
+
+        /* Gallery */
         .gallery img {
             width: 100%;
             height: auto;
-            margin-bottom: 10px;
             border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
+
+        .gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+
+        /* Book Now Button */
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            font-weight: bold;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #218868;
+            border-color: #218868;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+
+        /* Footer */
         footer {
-            background: #343a40;
-            color: white;
+            background: #1e2d3b;
+            color: #ccc;
             text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+            font-size: 0.95rem;
+            transition: background-color 0.3s ease;
+        }
+
+        footer:hover {
+            background: #2c3e50;
+        }
+
+        /* Responsive Typography */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p.lead {
+                font-size: 1.2rem;
+            }
+
+            .package-card {
+                padding: 2rem;
+            }
         }
     </style>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand" href="#">Tours & Travels</a>
+        <a class="navbar-brand text-center" href="#">Tours & Travels</a> <!-- Centered Navbar Brand --> 
     </div>
 </nav>
 
-<!-- Header -->
-<header class="bg-primary text-white text-center py-4">
-    <h1>Explore The Andaman Islands</h1>
-    <p class="lead">6 Days & 5 Nights Premium Tour Package</p>
-</header>
-
+<!-- Main Content -->
 <main class="container my-5">
     <div class="package-card">
 
-        <h2 class="text-primary">🌴 Andaman Island Adventure - 6D/5N</h2>
+        <!-- Centered Heading -->
+        <h2 class="text-primary text-center"> Andaman Island Adventure </h2>
+        <img src="images/popularDestinations/anmain.jpg" alt="Andaman Islands" class="img-fluid">
 
         <!-- Description -->
-        <p>
+        <p class="content-block">
             Dive into the beauty of the Andaman Islands with our premium travel package that covers Port Blair, Havelock Island, and North Bay.
             Enjoy pristine beaches, coral reefs, and rich cultural experiences in one of India’s most exotic destinations.
         </p>
@@ -71,116 +210,61 @@
         <p class="price-tag">Starting from ₹35,000 per person</p>
 
         <!-- Inclusions -->
-        <h4>Included in the Package</h4>
-        <ul>
-            <li>✔️ Round-trip airfare from Delhi/Mumbai to Port Blair</li>
-            <li>✔️ Stay at 3-star hotels with breakfast included</li>
-            <li>✔️ Transfers between islands via ferry</li>
-            <li>✔️ Sightseeing tours to popular spots (Cellular Jail, Radhanagar Beach, etc.)</li>
-            <li>✔️ Boat ride and snorkeling at North Bay</li>
-            <li>✔️ All applicable taxes and service charges</li>
-        </ul>
+        <h4 class="section-title">Included in the Package</h4>
+        <div class="included-section">
+            <p class="content-block">
+                Round-trip airfare from Delhi/Mumbai to Port Blair. Stay at 3-star hotels with breakfast included. Transfers between islands via ferry.
+                Sightseeing tours to popular spots like Cellular Jail, Radhanagar Beach, and Chidiyatapu. Boat ride and snorkeling at North Bay.
+                All applicable taxes and service charges are covered.
+            </p>
+        </div>
 
         <!-- Exclusions -->
-        <h4>Not Included</h4>
-        <ul>
-            <li>✖️ Lunch and dinner</li>
-            <li>✖️ Personal expenses (shopping, spa, etc.)</li>
-            <li>✖️ Travel insurance (optional add-on)</li>
-        </ul>
+        <h4 class="section-title">Not Included</h4>
+        <div class="not-included-section">
+            <p class="content-block">
+                Lunch and dinner during the tour. Personal expenses such as shopping, spa treatments, or optional activities.
+                Travel insurance is not included but can be added as an optional add-on.
+            </p>
+        </div>
 
         <!-- Itinerary -->
-        <h4>Sample Itinerary</h4>
-        <ul>
-            <li><strong>Day 1:</strong> Arrival in Port Blair – Hotel Check-in & Evening Leisure</li>
-            <li><strong>Day 2:</strong> Cellular Jail + Chidiyatapu Sunset Point</li>
-            <li><strong>Day 3:</strong> Ferry to Havelock – Relax at Radhanagar Beach</li>
-            <li><strong>Day 4:</strong> Full Day Tour – Elephant Beach by boat + Snorkeling</li>
-            <li><strong>Day 5:</strong> Ferry to North Bay – Coral Reef & Water Sports</li>
-            <li><strong>Day 6:</strong> Departure – Visit Corbyn’s Cove Beach before flying out</li>
-        </ul>
+        <h4 class="section-title">Sample Itinerary</h4>
+        <div class="itinerary-section">
+            <p class="content-block">
+                Day 1: Arrival in Port Blair – Hotel Check-in & Evening Leisure.  
+                Day 2: Visit the historic Cellular Jail followed by Chidiyatapu Sunset Point.  
+                Day 3: Ferry to Havelock Island – Relax at the famous Radhanagar Beach.  
+                Day 4: Full day tour to Elephant Beach by boat including snorkeling.  
+                Day 5: Ferry to North Bay – Explore coral reefs and enjoy water sports.  
+                Day 6: Departure – Visit Corbyn’s Cove Beach before flying back home.
+            </p>
+        </div>
 
         <!-- Image Gallery -->
-        <h4>Gallery</h4>
-        <div class="row gallery">
-            <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=Radhanagar+Beach " alt="Radhanagar Beach">
-            </div>
-            <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=North+Bay+Island " alt="North Bay Island">
-            </div>
-            <div class="col-md-4 mb-3">
-                <img src="https://via.placeholder.com/400x250?text=Cellular+Jail " alt="Cellular Jail">
-            </div>
-        </div>
-
-        <!-- Testimonials -->
-        <h4>User Reviews</h4>
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <blockquote class="blockquote">
-                    <p>"One of the best trips ever! Service was amazing."</p>
-                    <footer class="blockquote-footer">Amit Sharma</footer>
-                </blockquote>
-            </div>
-            <div class="col-md-6 mb-3">
-                <blockquote class="blockquote">
-                    <p>"The itinerary was well-planned and worth every penny!"</p>
-                    <footer class="blockquote-footer">Priya Rao</footer>
-                </blockquote>
+        <h4 class="section-title mt-4">Gallery</h4>
+        <div class="gallery-section">
+            <div class="row gallery g-3">
+                <div class="col-md-4">
+                    <img src="images/popularDestinations/imageAndaman.jpg" alt="Radhanagar Beach">
+                </div>
+                <div class="col-md-4">
+                    <img src="images/popularDestinations/an2.jpg" alt="North Bay Island">
+                </div>
+                <div class="col-md-4">
+                    <img src="images/popularDestinations/an3.jpg" alt="Cellular Jail">
+                </div>
             </div>
         </div>
-
-        <!-- Book Now Button -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bookingModal">
-            Book This Package
-        </button>
 
     </div>
 </main>
 
-<!-- Booking Modal -->
-<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form class="modal-content" action="submit_booking.php" method="POST">
-            <div class="modal-header">
-                <h5 class="modal-title" id="bookingModalLabel">Book Your Trip</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" name="package_name" value="Andaman 6D/5N Adventure">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Full Name</label>
-                    <input type="text" name="name" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" name="email" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" name="phone" class="form-control" required>
-                </div>
-                <div class="mb-3">
-                    <label for="travelers" class="form-label">Number of Travelers</label>
-                    <select name="travelers" class="form-select" id="travelersSelect" onchange="updatePrice(this.value)" required>
-                        <option value="">Select</option>
-                        <option value="1">1 Person</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4+ People</option>
-                    </select>
-                </div>
-                <div class="mb-3">
-                    <p>Total Price: <span id="totalPrice" class="text-success fw-bold">₹35,000</span></p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-success">Confirm Booking</button>
-            </div>
-        </form>
-    </div>
+<!-- Book Now Button -->
+<div class="text-center my-5">
+    <a href="andamanbooking.php" class="btn btn-success">
+        Book This Package
+    </a>
 </div>
 
 <!-- Footer -->
@@ -189,7 +273,7 @@
 </footer>
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap @5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> 
 
 <script>
     function updatePrice(value) {
